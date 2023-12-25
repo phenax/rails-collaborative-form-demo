@@ -1,0 +1,526 @@
+=> Booting Puma
+=> Rails 7.0.8 application starting in development 
+=> Run `bin/rails server --help` for more startup options
+Puma starting in single mode...
+* Puma version: 5.6.7 (ruby 3.2.2-p53) ("Birdie's Version")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: development
+*          PID: 337640
+* Listening on http://127.0.0.1:3000
+* Listening on http://[::1]:3000
+Use Ctrl-C to stop
+Started GET "/cable" for ::1 at 2023-12-25 18:24:48 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2023-12-25 18:24:48 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Registered connection (e740a5dc-2ea9-426d-84f5-d5ff50f505e7)
+session['id'] = de6ad489-c119-40b2-8008-d4858e4d8bfd
+FormChannel transmitting {:update=>"AAABAA=="}
+FormChannel is streaming from form:#<ActionDispatch::Request::Session:0x00007f5a0cf2e898>
+FormChannel is transmitting the subscription confirmation
+FormChannel#receive({"update"=>"AAECAAA="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0cf2e898>: {:update=>"AAECAAA=", :origin=>"e740a5dc-2ea9-426d-84f5-d5ff50f505e7"}
+FormChannel#receive({"update"=>"AAABAA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0cf2e898>: {:update=>"AAABAA==", :origin=>"e740a5dc-2ea9-426d-84f5-d5ff50f505e7"}
+FormChannel#receive({"update"=>"AQoBxfX/8wMGAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0cf2e898>: {:update=>"AQoBxfX/8wMGAnt9", :origin=>"e740a5dc-2ea9-426d-84f5-d5ff50f505e7"}
+FormChannel transmitting {:update=>"AAECAAA="}
+FormChannel#receive({"update"=>"AQoBxfX/8wMHAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0cf2e898>: {:update=>"AQoBxfX/8wMHAnt9", :origin=>"e740a5dc-2ea9-426d-84f5-d5ff50f505e7"}
+Started GET "/" for ::1 at 2023-12-25 18:24:58 +0530
+Processing by HomeController#index as HTML
+session['init'] = 
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 330)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 20443)
+Completed 200 OK in 28ms (Views: 22.7ms | ActiveRecord: 0.0ms | Allocations: 24705)
+
+
+Ignoring message processed after the WebSocket was closed: "{\"command\":\"message\",\"identifier\":\"{\\\"channel\\\":\\\"FormChannel\\\",\\\"id\\\":\\\"mmmeee\\\"}\",\"data\":\"{\\\"update\\\":\\\"AQwBxfX/8wMIBG51bGw=\\\"}\"}")
+Finished "/cable" [WebSocket] for ::1 at 2023-12-25 18:24:58 +0530
+FormChannel stopped streaming from form:#<ActionDispatch::Request::Session:0x00007f5a0cf2e898>
+Started GET "/cable" for ::1 at 2023-12-25 18:24:58 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2023-12-25 18:24:58 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Registered connection (e162b8f1-bcc2-42e6-abde-7479ae98fe27)
+session['id'] = de6ad489-c119-40b2-8008-d4858e4d8bfd
+FormChannel transmitting {:update=>"AAABAA=="}
+FormChannel is streaming from form:#<ActionDispatch::Request::Session:0x00007f59fc9bea80>
+FormChannel is transmitting the subscription confirmation
+FormChannel#receive({"update"=>"AAECAAA="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9bea80>: {:update=>"AAECAAA=", :origin=>"e162b8f1-bcc2-42e6-abde-7479ae98fe27"}
+FormChannel#receive({"update"=>"AAABAA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9bea80>: {:update=>"AAABAA==", :origin=>"e162b8f1-bcc2-42e6-abde-7479ae98fe27"}
+FormChannel#receive({"update"=>"AQoBsdG4sw0AAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9bea80>: {:update=>"AQoBsdG4sw0AAnt9", :origin=>"e162b8f1-bcc2-42e6-abde-7479ae98fe27"}
+FormChannel transmitting {:update=>"AAECAAA="}
+Started GET "/" for ::1 at 2023-12-25 18:25:05 +0530
+Processing by HomeController#index as HTML
+session['init'] = 
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 975)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 1606)
+
+
+Ignoring message processed after the WebSocket was closed: "{\"command\":\"message\",\"identifier\":\"{\\\"channel\\\":\\\"FormChannel\\\",\\\"id\\\":\\\"mmmeee\\\"}\",\"data\":\"{\\\"update\\\":\\\"AQwBsdG4sw0BBG51bGw=\\\"}\"}")
+Finished "/cable" [WebSocket] for ::1 at 2023-12-25 18:25:05 +0530
+FormChannel stopped streaming from form:#<ActionDispatch::Request::Session:0x00007f59fc9bea80>
+Started GET "/cable" for ::1 at 2023-12-25 18:25:06 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2023-12-25 18:25:06 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Registered connection (ffdf773e-3709-40b8-afe1-337b0fad3476)
+session['id'] = de6ad489-c119-40b2-8008-d4858e4d8bfd
+FormChannel transmitting {:update=>"AAABAA=="}
+FormChannel is streaming from form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>
+FormChannel is transmitting the subscription confirmation
+FormChannel#receive({"update"=>"AAECAAA="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAECAAA=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AAABAA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAABAA==", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewACe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewACe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel transmitting {:update=>"AAECAAA="}
+FormChannel#receive({"update"=>"AQkBwajqewECe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewECe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewICe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewICe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewMCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewMCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewQCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewQCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewUCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewUCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewYCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewYCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewcCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewcCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewgCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewgCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewkCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewkCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewoCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewoCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewsCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewsCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqewwCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqewwCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqew0Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqew0Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqew4Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqew4Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqew8Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqew8Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexACe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexACe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AAIZAQHBqOp7AAgBBmZpZWxkcwF2AQJpZH0BAA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAIZAQHBqOp7AAgBBmZpZWxkcwF2AQJpZH0BAA==", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AAIdAQHBqOp7AUjBqOp7AAJ2AQJpZH0BdgECaWR9AgA="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAIdAQHBqOp7AUjBqOp7AAJ2AQJpZH0BdgECaWR9AgA=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexECe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexECe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexICe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexICe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+Started GET "/" for ::1 at 2023-12-25 18:29:37 +0530
+Processing by HomeController#index as HTML
+session['init'] = 
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 990)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 1604)
+
+
+Started GET "/cable" for ::1 at 2023-12-25 18:29:37 +0530
+Started GET "/cable" [WebSocket] for ::1 at 2023-12-25 18:29:37 +0530
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Registered connection (461b31e9-e207-453b-9d97-c4aa4b3fa0a4)
+session['id'] = de6ad489-c119-40b2-8008-d4858e4d8bfd
+FormChannel transmitting {:update=>"AAABAA=="}
+FormChannel is streaming from form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>
+FormChannel is transmitting the subscription confirmation
+FormChannel#receive({"update"=>"AAEuAQLBqOp7AAgBBmZpZWxkcwF2AQJpZH0BSMGo6nsAAnYBAmlkfQF2AQJpZH0CAA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AAEuAQLBqOp7AAgBBmZpZWxkcwF2AQJpZH0BSMGo6nsAAnYBAmlkfQF2AQJpZH0CAA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AAAGAcGo6nsD"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AAAGAcGo6nsD", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcAAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcAAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel transmitting {:update=>"AAECAAA="}
+FormChannel#receive({"update"=>"AQoBkZm06wcBAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcBAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcBAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcBAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexMCe30="})
+FormChannel#receive({"update"=>"AQkBwajqexMCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexMCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexMCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcCAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcCAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcCAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcCAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexQCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexQCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexQCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexQCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcDAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcDAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcDAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcDAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexUCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexUCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexUCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexUCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcEAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcEAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcEAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcEAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcFAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcFAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcFAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcFAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQsBwajqexUEbnVsbA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQsBwajqexUEbnVsbA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQkBwajqexYCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexYCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexYCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexYCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AAIeAQGRmbTrBwBIwajqewECdgECaWR9BXYBAmlkfQcA"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AAIeAQGRmbTrBwBIwajqewECdgECaWR9BXYBAmlkfQcA", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcGAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcGAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcGAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcGAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AAIfAQGRmbTrBwJIkZm06wcAAnYBAmlkfQV2AQJpZH0HAA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AAIfAQGRmbTrBwJIkZm06wcAAnYBAmlkfQV2AQJpZH0HAA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AAIfAQGRmbTrBwRIkZm06wcCAnYBAmlkfQV2AQJpZH0HAA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AAIfAQGRmbTrBwRIkZm06wcCAnYBAmlkfQV2AQJpZH0HAA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AAIfAQGRmbTrBwZIkZm06wcEAnYBAmlkfQV2AQJpZH0HAA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AAIfAQGRmbTrBwZIkZm06wcEAnYBAmlkfQV2AQJpZH0HAA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AAIeAQHBqOp7A0iRmbTrBwYCdgECaWR9BXYBAmlkfQcA"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAIeAQHBqOp7A0iRmbTrBwYCdgECaWR9BXYBAmlkfQcA", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AAIeAQGRmbTrBwhIwajqewMCdgECaWR9BXYBAmlkfQcA"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AAIeAQGRmbTrBwhIwajqewMCdgECaWR9BXYBAmlkfQcA", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcHAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcHAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcHAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcHAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexcCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexcCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexcCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexcCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcIAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcIAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcIAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcIAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcJAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcJAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcJAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcJAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQsBwajqexcEbnVsbA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQsBwajqexcEbnVsbA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQkBwajqexgCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexgCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexgCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexgCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcKAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcKAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcKAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcKAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcLAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcLAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcLAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcLAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexkCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexkCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexkCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexkCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcMAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcMAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcMAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcMAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcNAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcNAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcNAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcNAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQsBwajqexkEbnVsbA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQsBwajqexkEbnVsbA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQkBwajqexoCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexoCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexoCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexoCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcOAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcOAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcOAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcOAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcPAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcPAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcPAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcPAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexsCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexsCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexsCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexsCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcQAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcQAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcQAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcQAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcRAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcRAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcRAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcRAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQsBwajqexsEbnVsbA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQsBwajqexsEbnVsbA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQkBwajqexwCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqexwCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqexwCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqexwCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcSAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcSAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcSAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcSAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcTAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcTAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcTAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcTAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqex0Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqex0Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqex0Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqex0Ce30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcUAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcUAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcUAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcUAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcVAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcVAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcVAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcVAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQsBwajqex0EbnVsbA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQsBwajqex0EbnVsbA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQkBwajqex4Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqex4Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqex4Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqex4Ce30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcWAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcWAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcWAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcWAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcXAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcXAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcXAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcXAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqex8Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqex8Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqex8Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqex8Ce30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcYAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcYAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcYAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcYAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcZAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcZAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcZAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcZAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQsBwajqex8EbnVsbA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQsBwajqex8EbnVsbA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQkBwajqeyACe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeyACe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyACe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqeyACe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AAIWAQHBqOp7BQUBA2ZvbwdbIjEyMyJdAA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAIWAQHBqOp7BQUBA2ZvbwdbIjEyMyJdAA==", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AAISAQHBqOp7BkTBqOp7BQMxMjMA"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAISAQHBqOp7BkTBqOp7BQMxMjMA", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcaAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcaAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcaAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcaAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AAISAQHBqOp7CUTBqOp7BgMxMjMA"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAISAQHBqOp7CUTBqOp7BgMxMjMA", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcbAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcbAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcbAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcbAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyECe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeyECe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyECe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqeyECe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wccAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wccAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wccAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wccAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcdAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcdAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcdAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcdAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQsBwajqeyEEbnVsbA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQsBwajqeyEEbnVsbA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQkBwajqeyICe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeyICe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyICe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqeyICe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wceAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wceAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wceAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wceAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcfAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcfAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcfAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcfAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyMCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeyMCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyMCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqeyMCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcgAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcgAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcgAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcgAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wchAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wchAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wchAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wchAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQsBwajqeyMEbnVsbA=="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQsBwajqeyMEbnVsbA==", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQkBwajqeyQCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqeyQCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQkBwajqeyQCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeyQCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wciAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wciAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wciAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wciAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AAILAAHBqOp7AgYBCQM="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAILAAHBqOp7AgYBCQM=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQoBkZm06wcjAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wcjAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wcjAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wcjAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AAILAAHBqOp7AgUBBwI="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AAILAAHBqOp7AgUBBwI=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyUCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeyUCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyUCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQkBwajqeyUCe30=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wckAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQoBkZm06wckAnt9", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQoBkZm06wckAnt9"})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQoBkZm06wckAnt9", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQwBkZm06wclBG51bGw="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>: {:update=>"AQwBkZm06wclBG51bGw=", :origin=>"461b31e9-e207-453b-9d97-c4aa4b3fa0a4"}
+FormChannel#receive({"update"=>"AQwBkZm06wclBG51bGw="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQwBkZm06wclBG51bGw=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyYCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeyYCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+Finished "/cable" [WebSocket] for ::1 at 2023-12-25 18:38:43 +0530
+FormChannel stopped streaming from form:#<ActionDispatch::Request::Session:0x00007f5a0d62f3e0>
+FormChannel#receive({"update"=>"AQkBwajqeycCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeycCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeygCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeygCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeykCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeykCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeyoCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeyoCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeysCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeysCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqeywCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqeywCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqey0Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqey0Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqey4Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqey4Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqey8Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqey8Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezACe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezACe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezECe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezECe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezICe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezICe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezMCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezMCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezQCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezQCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezUCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezUCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezYCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezYCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezcCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezcCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezgCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezgCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezkCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezkCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezoCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezoCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezsCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezsCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqezwCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqezwCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqez0Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqez0Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqez4Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqez4Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqez8Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqez8Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0ACe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0ACe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0ECe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0ECe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0ICe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0ICe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0MCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0MCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0QCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0QCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0UCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0UCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0YCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0YCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0cCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0cCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0gCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0gCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0kCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0kCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0oCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0oCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0sCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0sCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe0wCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe0wCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe00Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe00Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe04Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe04Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe08Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe08Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1ACe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1ACe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1ECe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1ECe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1ICe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1ICe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1MCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1MCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1QCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1QCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1UCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1UCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1YCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1YCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1cCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1cCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1gCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1gCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1kCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1kCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1oCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1oCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1sCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1sCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe1wCe30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe1wCe30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
+FormChannel#receive({"update"=>"AQkBwajqe10Ce30="})
+[ActionCable] Broadcasting to form:#<ActionDispatch::Request::Session:0x00007f59fc9b2fa0>: {:update=>"AQkBwajqe10Ce30=", :origin=>"ffdf773e-3709-40b8-afe1-337b0fad3476"}
