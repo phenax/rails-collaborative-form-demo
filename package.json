@@ -11,5 +11,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "yjs": "^13.6.10"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18"
   }
 }
