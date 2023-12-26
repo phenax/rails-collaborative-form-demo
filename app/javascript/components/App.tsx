@@ -21,7 +21,7 @@ export const PeopleForm: React.FC = () => {
 
   return (
     <div>
-      <h2>People <button onClick={() => peopleField.append({ name: new Y.Text(), age: new Y.Text() })}>+ Add</button></h2>
+      <h2>People <button onClick={() => peopleField.append({ name: new Y.Text(), profession: new Y.Text() })}>+ Add</button></h2>
       {peopleField.array.map((item, index) => (
         <div key={item.id}>
           <EditPerson root={item} deleteItem={() => peopleField.delete(index)} />

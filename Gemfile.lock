@@ -172,6 +172,7 @@ GEM
     rb_sys (0.9.84)
     rdoc (6.6.2)
       psych (>= 4.0.0)
+    redis (4.8.1)
     regexp_parser (2.8.3)
     reline (0.4.1)
       io-console (~> 0.5)
@@ -231,6 +232,7 @@ DEPENDENCIES
   jsbundling-rails (~> 1.2)
   puma (~> 5.0)
   rails (~> 7.0.8)
+  redis (~> 4.0)
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

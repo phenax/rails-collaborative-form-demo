@@ -1,0 +1,34 @@
+* Tasks
+  - (x) Granular updates in text fields with diffs
+  - ( ) Complex example with nested fields
+  - ( ) Deploy
+  - ( ) DB model
+  - ( ) Clean up UI + tailwind
+
+* DB
+** user
+   - id
+   - name
+   - age
+   - deeds
+** deed
+   - id
+   - description
+   - date
+** nice_list
+   - id
+   - user_id
+   - gift
+** naughty_list
+   - id
+   - user_id
+   - punishment
+
+* Ideas
+  - Granular updates in text fields with diffs
+  - Observer changes to Y.Map
+  - Allow listening to changes on different parts of documents
+  - Select fields
+  - Struct helpers?
+  - Use sub-documents?
+

@@ -3,14 +3,13 @@
 module ApplicationCable
   # doc
   class Connection < ActionCable::Connection::Base
-    identified_by :id
-
     def connect
-      self.id = SecureRandom.uuid
+      # self.id = SecureRandom.uuid
     end
 
     def session
-      @request.session
+      # @request.session
+      Data.define(:id).new('testsess')
     end
   end
 end

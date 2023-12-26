@@ -8,12 +8,14 @@
   "dependencies": {
     "@rails/actioncable": "^7.1.2",
     "@y-rb/actioncable": "^0.2.1",
+    "diff": "^5.1.0",
     "esbuild": "^0.19.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "yjs": "^13.6.10"
   },
   "devDependencies": {
+    "@types/diff": "^5.0.9",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "concurrently": "^8.2.2"

@@ -3,6 +3,6 @@
 # Home controller
 class HomeController < ApplicationController
   def index
-    puts "session['init'] = #{session['init']}"
+    p '---------------- page load ----------------'
   end
 end

@@ -2,10 +2,12 @@ import { ChangeEvent, createContext, useContext, useEffect, useMemo, useReducer,
 import { WebsocketProvider } from '@y-rb/actioncable'
 import { createConsumer } from '@rails/actioncable'
 import * as Y from 'yjs'
+import { diffChars } from 'diff'
 
 const useNotify = () => useReducer((n: number) => n + 1, 0);
 
-(window as any).Y = Y
+(window as any).Y = Y;
+(window as any).diffChars = diffChars;
 
 // TODO: Wrapper over Y.Map for structs
 
@@ -105,6 +107,7 @@ export const useYTextField = (root: FieldRecord, name: string) => {
   }, [value])
 
   useYObserver(value, (ev) => {
+    console.log(ev.delta)
     setInputValue(ev.target.toJSON().toString())
   })
 
@@ -114,10 +117,16 @@ export const useYTextField = (root: FieldRecord, name: string) => {
       onChange: (e: ChangeEvent<HTMLInputElement>) => {
         if (!value) return;
 
-        // TODO: Better updates?
         yDoc?.transact((_tr) => {
-          value.delete(0, value.length);
-          value.insert(0, e.target.value);
+          diffChars(value.toString(), e.target.value).reduce((index, part) => {
+            console.log(part)
+            if (part.added) {
+              value.insert(index, part.value);
+            } else if (part.removed && part.count) {
+              value.delete(index, part.count);
+            }
+            return index + (part.count ?? 0)
+          }, 0)
         })
       }
     },

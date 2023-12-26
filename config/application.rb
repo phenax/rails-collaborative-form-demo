@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -7,11 +9,17 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module RailsCollaborativeFormDemo
+  # doc
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
     config.session_store :cookie_store, key: '_your_app_session'
+
+    # config.cache_store = :redis_cache_store
+
+    config.hosts << 'phenax.loca.lt'
+    config.hosts << 'phenax.loca.lt'
 
     # Configuration for the application, engines, and railties goes here.
     #
