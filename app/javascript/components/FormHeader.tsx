@@ -5,11 +5,11 @@ export const ActiveUsers: React.FC = () => {
   const activeUsers = useActiveUsers();
 
   return (
-    <div style={{ display: 'flex', gap: '10px' }}>
+    <div className="flex gap-2 text-sm">
       <div>Active users:</div>
-      <div style={{ display: 'flex', gap: '5px' }}>
+      <div className="flex gap-2">
         {activeUsers.users.map(user => (
-          <div key={user.id} title={user.name} style={{ border: '1px solid gray' }}>
+          <div key={user.id} title={user.name} className="border">
             {activeUsers.self?.id === user.id ? `Me (${user.name})` : user.name}
           </div>
         ))}
@@ -22,8 +22,8 @@ export const FormHeader: React.FC = () => {
   useSetupUser(getRandomUser);
 
   return (
-    <div>
-      <h1>Form</h1>
+    <div className="py-4">
+      <h1 className="text-4xl">Santa's collaborative list</h1>
       <ActiveUsers />
     </div>
   )

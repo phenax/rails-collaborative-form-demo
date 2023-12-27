@@ -9,8 +9,9 @@ export const MyForm: React.FC = () => {
   const { root } = useFormContext();
 
   return (
-    <div style={{ padding: '1rem 0' }}>
-      <CollabTextInput root={root} name="description" />
+    <div className="py-1">
+      <CollabTextInput root={root} name="description" placeholder="Description" />
+
       <EditPeopleForm />
     </div>
   )
@@ -22,7 +23,7 @@ export const App = () => {
   return (
     <formCtx.Provider value={yForm}>
       {yForm.isReady && (
-        <div className="App">
+        <div className="max-w-4xl m-auto">
           <FormHeader />
           <MyForm />
         </div>

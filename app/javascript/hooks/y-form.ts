@@ -136,9 +136,9 @@ export const useYArrayField = <T>(root: FieldRecord, name: string): FieldArray<T
   }), [array, updateCount]);
 };
 
-export const useYValueField = <T = string>(root: FieldRecord, name: string) => {
+export const useYValueField = <T = string>(root: FieldRecord, name: string, defaultValue?: T) => {
   const fieldPath = `${root.fieldPath}/${name}`;
-  const [value, setValue] = useState<T | undefined>();
+  const [value, setValue] = useState<T | undefined>(defaultValue);
   const { onFocus, onBlur } = useUserFocus(fieldPath);
 
   useEffect(() => {

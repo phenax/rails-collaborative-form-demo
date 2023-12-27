@@ -2,7 +2,7 @@
   - (x) Granular updates in text fields with diffs
   - (x) Awareness
   - (x) Deploy
-  - ( ) Clean up UI + tailwind
+  - (x) Clean up UI + tailwind
   - ( ) Complex example with nested fields
   - ( ) DB model
   - ( ) Docker
