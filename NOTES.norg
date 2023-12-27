@@ -1,6 +1,6 @@
 * Todo
   - (x) Granular updates in text fields with diffs
-  - ( ) Awareness
+  - (x) Awareness
   - ( ) Docker
   - ( ) Complex example with nested fields
   - ( ) DB model
@@ -33,4 +33,3 @@
   - Select fields
   - Struct helpers?
   - Use sub-documents?
-
