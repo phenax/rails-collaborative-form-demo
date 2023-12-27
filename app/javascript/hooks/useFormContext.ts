@@ -2,8 +2,14 @@ import { createContext, useContext } from 'react'
 import { WebsocketProvider } from '@y-rb/actioncable'
 import * as Y from 'yjs'
 
-export type FieldRecord = { record: Y.Map<any> | undefined, id: string };
+export type FieldRecord = {
+  record: Y.Map<any> | undefined;
+  id: string;
+  fieldPath: string;
+};
+
 export type FieldArray<T = any> = {
+  fieldPath: string;
   array: FieldRecord[];
   updateCount: number;
   append: (item: T) => void;

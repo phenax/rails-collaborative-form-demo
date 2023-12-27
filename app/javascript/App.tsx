@@ -1,16 +1,16 @@
 import React from 'react'
-import { useYForm, useYTextField } from './hooks/y-form';
+import { useYForm } from './hooks/y-form';
 import { formCtx, useFormContext } from './hooks/useFormContext';
 import { EditPeopleForm } from './components/EditPeople';
 import { FormHeader } from './components/FormHeader';
+import { CollabTextInput } from './components/CollabInputs';
 
 export const MyForm: React.FC = () => {
   const { root } = useFormContext();
-  const descField = useYTextField(root, 'description');
 
   return (
     <div style={{ padding: '1rem 0' }}>
-      <input type="text" name="description" {...descField.props} />
+      <CollabTextInput root={root} name="description" />
       <EditPeopleForm />
     </div>
   )

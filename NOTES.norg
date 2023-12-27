@@ -1,11 +1,12 @@
 * Todo
   - (x) Granular updates in text fields with diffs
   - (x) Awareness
-  - ( ) Docker
+  - (x) Deploy
+  - ( ) Clean up UI + tailwind
   - ( ) Complex example with nested fields
   - ( ) DB model
-  - ( ) Deploy
-  - ( ) Clean up UI + tailwind
+  - ( ) Docker
+  - ( ) Text bug (some changes don't go through?)
 
 * DB
 ** user

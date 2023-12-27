@@ -6,6 +6,7 @@ import { diffChars } from 'diff'
 import { FieldArray, FieldRecord, formCtx } from './useFormContext'
 import { useForceRender } from './useForceRender'
 import { useYObserver } from './useYObserver'
+import { useUserFocus } from './awareness'
 
 (window as any).Y = Y; // For debugging
 
@@ -20,7 +21,7 @@ export const useIsSynced = (provider?: WebsocketProvider) => {
         clearInterval(timer);
         setIsSynced(true);
       }
-    }, 400);
+    }, 800);
     return () => clearInterval(timer);
   }, [provider]);
   return isSynced;
@@ -44,7 +45,7 @@ export const useYForm = () => {
 
   const root = yDoc?.getMap('form');
 
-  return { yDoc: yDoc, provider: provider, root: { record: root, id: 'root' }, isReady }
+  return { yDoc: yDoc, provider: provider, root: { record: root, id: 'root', fieldPath: '' }, isReady }
 }
 
 export const setupFieldValue = <T extends Y.AbstractType<any>>(
@@ -60,8 +61,11 @@ export const setupFieldValue = <T extends Y.AbstractType<any>>(
 }
 
 export const useYTextField = (root: FieldRecord, name: string) => {
+  const fieldPath = `${root.fieldPath}/${name}`;
   const [inputValue, setInputValue] = useState<string>('');
   const { yDoc } = useContext(formCtx);
+
+  const { onFocus, onBlur } = useUserFocus(fieldPath);
 
   const value = useMemo(() => setupFieldValue(root, name, new Y.Text()), [name, root.record]);
 
@@ -75,9 +79,13 @@ export const useYTextField = (root: FieldRecord, name: string) => {
   })
 
   return {
+    fieldPath,
     props: {
       name,
       value: inputValue,
+      'data-field-id': fieldPath,
+      onFocus,
+      onBlur,
       onChange: (e: ChangeEvent<HTMLInputElement>) => {
         if (!value) return;
 
@@ -107,8 +115,12 @@ export const useYArrayField = <T>(root: FieldRecord, name: string): FieldArray<T
   })
 
   return useMemo((): FieldArray<T> => ({
+    fieldPath: `${root.fieldPath}/${name}`,
     array: array?.map(item => ({
       record: item,
+      get fieldPath() {
+        return `${root.fieldPath}/${name}/${item.get('_id').toString()}`;
+      },
       get id() {
         return item.get('_id').toString()
       },
@@ -125,7 +137,9 @@ export const useYArrayField = <T>(root: FieldRecord, name: string): FieldArray<T
 };
 
 export const useYValueField = <T = string>(root: FieldRecord, name: string) => {
+  const fieldPath = `${root.fieldPath}/${name}`;
   const [value, setValue] = useState<T | undefined>();
+  const { onFocus, onBlur } = useUserFocus(fieldPath);
 
   useEffect(() => {
     if (!root.record) return;
@@ -145,9 +159,13 @@ export const useYValueField = <T = string>(root: FieldRecord, name: string) => {
   return {
     value,
     updateValue,
+    fieldPath,
     props: {
       name,
       value,
+      'data-field-id': fieldPath,
+      onFocus,
+      onBlur,
       onChange: (e: ChangeEvent<any>) => updateValue(e.currentTarget?.value as T),
     }
   }
