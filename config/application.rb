@@ -18,8 +18,10 @@ module RailsCollaborativeFormDemo
 
     # config.cache_store = :redis_cache_store
 
-    config.hosts << 'phenax.loca.lt'
-    config.hosts << 'phenax.loca.lt'
+    # config.hosts << 'phenax.loca.lt'
+
+    host_domain = ENV.fetch('CONFIG_HOST_DOMAIN', nil)
+    config.hosts << host_domain if host_domain.present?
 
     # Configuration for the application, engines, and railties goes here.
     #
