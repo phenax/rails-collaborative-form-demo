@@ -7,8 +7,13 @@ export const ActiveUsersDisplay: React.FC<{ path: string }> = ({ path }) => {
   const activeUsers = useActiveUsersOnField(path)
 
   return (
-    <div className="flex justify-end gap-2 text-sm">
-      &nbsp; {activeUsers.map(u => <div key={u.id}>{u.name}</div>)}
+    <div className="flex justify-end gap-2 text-xs">
+      <div className="border border-transparent">&nbsp;</div>
+      {activeUsers.map(u => <div
+        key={u.id}
+        className="border px-1"
+        style={{ borderColor: u.color, color: u.color }}
+      >{u.name.split(' ').map(n => n.charAt(0)).join('')}</div>)}
     </div>
   )
 }

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useFormContext } from './useFormContext';
 
-type DocUser = { name: string, id: string, focus?: string }
+type DocUser = { name: string, id: string, focus?: string, color?: string }
 
 export const useSetupUser = (getUser: () => DocUser) => {
   const { provider } = useFormContext();
 
   useEffect(() => {
     if (provider && !provider.awareness.getLocalState()?.user) {
-      provider.awareness.setLocalStateField('user', { focus: '', ...getUser() })
+      provider.awareness.setLocalStateField('user', getUser())
     }
   }, [provider, getUser]);
 }
