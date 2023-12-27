@@ -76,6 +76,7 @@ export const useYTextField = (root: FieldRecord, name: string) => {
 
   return {
     props: {
+      name,
       value: inputValue,
       onChange: (e: ChangeEvent<HTMLInputElement>) => {
         if (!value) return;
@@ -95,7 +96,7 @@ export const useYTextField = (root: FieldRecord, name: string) => {
   };
 }
 
-export const useYFieldArray = <T>(root: FieldRecord, name: string): FieldArray<T> => {
+export const useYArrayField = <T>(root: FieldRecord, name: string): FieldArray<T> => {
   const [updateCount, forceRender] = useForceRender()
 
   const array = useMemo(() => setupFieldValue(root, name, new Y.Array<Y.Map<any>>()), [name, root.record]);
@@ -123,3 +124,31 @@ export const useYFieldArray = <T>(root: FieldRecord, name: string): FieldArray<T
   }), [array, updateCount]);
 };
 
+export const useYValueField = <T = string>(root: FieldRecord, name: string) => {
+  const [value, setValue] = useState<T | undefined>();
+
+  useEffect(() => {
+    if (!root.record) return;
+    setValue(root.record?.get(name))
+  }, [root.record]);
+
+  useYObserver(root.record, (ev) => {
+    if (ev.keysChanged.has(name)) {
+      setValue(root.record?.get(name));
+    }
+  });
+
+  const updateValue = (newValue: T | undefined) => {
+    root.record?.set(name, newValue);
+  }
+
+  return {
+    value,
+    updateValue,
+    props: {
+      name,
+      value,
+      onChange: (e: ChangeEvent<any>) => updateValue(e.currentTarget?.value as T),
+    }
+  }
+}
