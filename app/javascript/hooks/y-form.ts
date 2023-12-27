@@ -1,33 +1,13 @@
-import { ChangeEvent, createContext, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react'
+import { ChangeEvent, useContext, useEffect, useMemo, useState } from 'react'
 import { WebsocketProvider } from '@y-rb/actioncable'
 import { createConsumer } from '@rails/actioncable'
 import * as Y from 'yjs'
 import { diffChars } from 'diff'
+import { FieldArray, FieldRecord, formCtx } from './useFormContext'
+import { useForceRender } from './useForceRender'
+import { useYObserver } from './useYObserver'
 
-const useNotify = () => useReducer((n: number) => n + 1, 0);
-
-(window as any).Y = Y;
-(window as any).diffChars = diffChars;
-
-// TODO: Wrapper over Y.Map for structs
-
-export type FieldRecord = { record: Y.Map<any> | undefined, id: string };
-export type FieldArray<T = any> = {
-  array: FieldRecord[];
-  updateCount: number;
-  append: (item: T) => void;
-  delete: (index: number) => void;
-};
-
-export type FormCtx = {
-  yDoc?: Y.Doc,
-  root: FieldRecord,
-  provider?: WebsocketProvider,
-}
-
-export const formCtx = createContext<FormCtx>(undefined!);
-
-export const useFormContext = () => useContext(formCtx);
+(window as any).Y = Y; // For debugging
 
 const actionCableConsumer = createConsumer();
 
@@ -79,22 +59,6 @@ export const setupFieldValue = <T extends Y.AbstractType<any>>(
   return root.record.get(name);
 }
 
-export const useYObserver = <T extends Y.AbstractType<any>>(
-  value: T | undefined,
-  handler: Parameters<T['observe']>[0]
-) => {
-  const handlerRef = useRef(handler);
-  handlerRef.current = handler;
-
-  useEffect(() => {
-    if (!value) return;
-    // @ts-ignore
-    const onEvent = (...p: any[]) => handlerRef.current(...p)
-    value.observe(onEvent)
-    return () => value.unobserve(onEvent)
-  }, [value])
-}
-
 export const useYTextField = (root: FieldRecord, name: string) => {
   const [inputValue, setInputValue] = useState<string>('');
   const { yDoc } = useContext(formCtx);
@@ -132,13 +96,13 @@ export const useYTextField = (root: FieldRecord, name: string) => {
 }
 
 export const useYFieldArray = <T>(root: FieldRecord, name: string): FieldArray<T> => {
-  const [updateCount, notifyUpdate] = useNotify()
+  const [updateCount, forceRender] = useForceRender()
 
   const array = useMemo(() => setupFieldValue(root, name, new Y.Array<Y.Map<any>>()), [name, root.record]);
 
   useYObserver(array, (ev) => {
     console.log('>>> arr', ev)
-    notifyUpdate();
+    forceRender();
   })
 
   return useMemo((): FieldArray<T> => ({
@@ -158,36 +122,4 @@ export const useYFieldArray = <T>(root: FieldRecord, name: string): FieldArray<T
     },
   }), [array, updateCount]);
 };
-
-type DocUser = { name: string, id: string }
-
-export const useSetupUser = (getUser: () => DocUser) => {
-  const { provider } = useFormContext();
-
-  useEffect(() => {
-    if (provider && !provider.awareness.getLocalState()?.user) {
-      provider.awareness.setLocalStateField('user', getUser())
-    }
-  }, [provider, getUser]);
-}
-
-export const useActiveUsers = () => {
-  const { provider } = useFormContext();
-  const [selfUser, setSelfUser] = useState<DocUser | undefined>(undefined);
-  const [users, setUsers] = useState<DocUser[]>([]);
-
-  useEffect(() => {
-    if (!provider) return;
-    const onUpdate = () => {
-      const awStates = Array.from(provider.awareness.getStates().values())
-      setSelfUser(provider.awareness.getLocalState()?.user)
-      setUsers(awStates.map((v: any) => v.user))
-    };
-
-    provider.awareness.on('update', onUpdate)
-    return () => provider.awareness.off('update', onUpdate);
-  }, [provider]);
-
-  return { self: selfUser, users };
-}
 

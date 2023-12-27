@@ -1,3 +1,5 @@
+// NOTE: Isn't used anywhere. Just experimenting an idea
+
 import * as Y from 'yjs'
 
 export type YFormTypes =
