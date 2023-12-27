@@ -1,8 +1,10 @@
-* Tasks
+* Todo
   - (x) Granular updates in text fields with diffs
+  - ( ) Awareness
+  - ( ) Docker
   - ( ) Complex example with nested fields
-  - ( ) Deploy
   - ( ) DB model
+  - ( ) Deploy
   - ( ) Clean up UI + tailwind
 
 * DB

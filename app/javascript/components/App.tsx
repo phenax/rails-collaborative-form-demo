@@ -1,5 +1,5 @@
 import React from 'react'
-import { FieldRecord, formCtx, useFormContext, useYFieldArray, useYForm, useYTextField } from '../y-form';
+import { FieldRecord, formCtx, useActiveUsers, useFormContext, useSetupUser, useYFieldArray, useYForm, useYTextField } from '../y-form';
 import * as Y from 'yjs'
 
 export const EditPerson: React.FC<{ root: FieldRecord, deleteItem: () => void }> = ({ root, deleteItem }) => {
@@ -36,9 +36,44 @@ export const MyForm: React.FC = () => {
   const descField = useYTextField(root, 'description');
 
   return (
-    <div>
+    <div style={{ padding: '1rem 0' }}>
       <input type="text" name="description" {...descField.props} />
       <PeopleForm />
+    </div>
+  )
+}
+
+export const getRandomUser = () => {
+  const id = `${Math.random()}`;
+  const names = ['Haskell', 'JavaScript', 'TypeScript', 'Rust', 'BQN', 'APL', 'Uiua', 'Nix', 'Lisp', 'Idris', 'Agda', 'Coq', 'Lua', 'C', 'Elixir', 'Go', 'CoffeeScript', 'Ruby', 'Kotlin', 'Scala', 'R', 'Dart', 'Erlang', 'Clojure', 'F#', 'OCaml', 'Racket', 'Zig', 'Prolog', 'Crystal']
+
+  return { id, name: names[Math.floor(Math.random() * names.length)] }
+}
+
+export const ActiveUsers: React.FC = () => {
+  const activeUsers = useActiveUsers();
+
+  return (
+    <div style={{ display: 'flex', gap: '10px' }}>
+      <div>Active users:</div>
+      <div style={{ display: 'flex', gap: '5px' }}>
+        {activeUsers.users.map(user => (
+          <div key={user.id} title={user.name} style={{ border: '1px solid gray' }}>
+            {activeUsers.self?.id === user.id ? `Me (${user.name})` : user.name}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export const FormHeader: React.FC = () => {
+  useSetupUser(getRandomUser);
+
+  return (
+    <div>
+      <h1>Form</h1>
+      <ActiveUsers />
     </div>
   )
 }
@@ -50,7 +85,7 @@ export const App = () => {
     <formCtx.Provider value={yForm}>
       {yForm.isReady && (
         <div className="App">
-          <h1>Form</h1>
+          <FormHeader />
           <MyForm />
         </div>
       )}

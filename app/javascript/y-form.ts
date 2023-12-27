@@ -107,7 +107,6 @@ export const useYTextField = (root: FieldRecord, name: string) => {
   }, [value])
 
   useYObserver(value, (ev) => {
-    console.log(ev.delta)
     setInputValue(ev.target.toJSON().toString())
   })
 
@@ -119,7 +118,6 @@ export const useYTextField = (root: FieldRecord, name: string) => {
 
         yDoc?.transact((_tr) => {
           diffChars(value.toString(), e.target.value).reduce((index, part) => {
-            console.log(part)
             if (part.added) {
               value.insert(index, part.value);
             } else if (part.removed && part.count) {
@@ -160,3 +158,36 @@ export const useYFieldArray = <T>(root: FieldRecord, name: string): FieldArray<T
     },
   }), [array, updateCount]);
 };
+
+type DocUser = { name: string, id: string }
+
+export const useSetupUser = (getUser: () => DocUser) => {
+  const { provider } = useFormContext();
+
+  useEffect(() => {
+    if (provider && !provider.awareness.getLocalState()?.user) {
+      provider.awareness.setLocalStateField('user', getUser())
+    }
+  }, [provider, getUser]);
+}
+
+export const useActiveUsers = () => {
+  const { provider } = useFormContext();
+  const [selfUser, setSelfUser] = useState<DocUser | undefined>(undefined);
+  const [users, setUsers] = useState<DocUser[]>([]);
+
+  useEffect(() => {
+    if (!provider) return;
+    const onUpdate = () => {
+      const awStates = Array.from(provider.awareness.getStates().values())
+      setSelfUser(provider.awareness.getLocalState()?.user)
+      setUsers(awStates.map((v: any) => v.user))
+    };
+
+    provider.awareness.on('update', onUpdate)
+    return () => provider.awareness.off('update', onUpdate);
+  }, [provider]);
+
+  return { self: selfUser, users };
+}
+
