@@ -6,7 +6,7 @@ export const ActiveUsers: React.FC = () => {
 
   return (
     <div className="flex gap-2 text-xs">
-      <div className="border border-transparent">Active users:</div>
+      <div className="border-2 border-transparent">Active users:</div>
       <div className="flex gap-2">
         {activeUsers.users.map(user => (
           <div key={user.id} title={user.name} className="border-2 px-1" style={{ borderColor: user.color, color: user.color }}>

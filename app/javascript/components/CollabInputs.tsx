@@ -29,31 +29,45 @@ export const CollabTextInput: React.FC<{ root: FieldRecord, name: string } & Inp
   )
 }
 
-export const CollabNumberInput: React.FC<{ root: FieldRecord, name: string }> = ({ root, name }) => {
-  const field = useYValueField(root, name, 18);
+export const CollabNumberInput: React.FC<{ root: FieldRecord, name: string } & InputHTMLAttributes<HTMLInputElement>> = ({ root, name, ...props }) => {
+  const field = useYValueField(root, name);
 
   return (
     <div className="w-full">
       <ActiveUsersDisplay path={field.fieldPath} />
-      <input type="number" className="block w-full" {...field.props} />
+      <input type="number" className="block w-full" {...props} {...field.props} />
     </div>
   )
 }
+
+export const SelectInput: React.FC<{
+  name: string;
+  options: { value: string, text: string }[];
+} & InputHTMLAttributes<HTMLSelectElement>> = ({ options, ...props }) => {
+  return (
+    <select className="block w-full" {...props}>
+      {options.map(o => (
+        <option
+          key={o.value}
+          value={o.value}
+          className={!o.value ? 'text-slate-500' : ''}
+        >{o.text}</option>
+      ))}
+    </select>
+  )
+}
+
 export const CollabSelectInput: React.FC<{
   root: FieldRecord;
   name: string;
   options: { value: string, text: string }[];
-}> = ({ root, name, options }) => {
+} & InputHTMLAttributes<HTMLSelectElement>> = ({ root, name, options, ...selectProps }) => {
   const field = useYValueField(root, name, options[0]?.value);
 
   return (
     <div className="w-full">
       <ActiveUsersDisplay path={field.fieldPath} />
-      <select className="block w-full" {...field.props}>
-        {options.map(o => (
-          <option key={o.value} value={o.value}>{o.text}</option>
-        ))}
-      </select>
+      <SelectInput {...selectProps} {...field.props} options={options} />
     </div>
   )
 }

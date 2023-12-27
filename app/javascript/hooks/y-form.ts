@@ -133,6 +133,9 @@ export const useYArrayField = <T>(root: FieldRecord, name: string): FieldArray<T
     delete(index) {
       array?.delete(index, 1);
     },
+    get length() {
+      return array?.length ?? 0;
+    },
   }), [array, updateCount]);
 };
 
