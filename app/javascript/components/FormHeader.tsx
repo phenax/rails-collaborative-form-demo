@@ -70,13 +70,19 @@ export const getRandomUser = () => {
     'Procreates',
     'Kills',
     'Explains',
-    'Massages',
-    'Sings',
-    'Skates',
     'Bullies',
     'Stabs',
     'Punches',
-    'Kisses',
+    'Destroys',
+    'Provides',
+    'Devours',
+    'Takes',
+    'Gives',
+    'Yells',
+    'Screams',
+    'Cries',
+    'Laughs',
+    'Eliminates',
   ]
 
   const colors = [
@@ -102,6 +108,7 @@ export const getRandomUser = () => {
   return {
     id,
     name: `${fn} ${ln}`,
+    shortName: `${fn} ${ln.charAt(0)}.`,
     color: c,
     focus: '',
   }

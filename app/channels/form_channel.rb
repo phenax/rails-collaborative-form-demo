@@ -23,6 +23,9 @@ class FormChannel < ApplicationCable::Channel
   private
 
   def load_doc(id)
+    puts '----------- LOAD DOC --------------'
+    p id
+    puts '-----------------------------------'
     data = REDIS.get(id)
     data = data.unpack('C*') unless data.nil?
     data

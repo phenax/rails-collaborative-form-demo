@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useFormContext } from './useFormContext';
 
-type DocUser = { name: string, id: string, focus?: string, color?: string }
+type DocUser = { name: string, shortName: string, id: string, focus?: string, color?: string }
 
 export const useSetupUser = (getUser: () => DocUser) => {
   const { provider } = useFormContext();

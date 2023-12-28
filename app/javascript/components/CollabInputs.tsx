@@ -13,7 +13,7 @@ export const ActiveUsersDisplay: React.FC<{ path: string }> = ({ path }) => {
         key={u.id}
         className="border px-1"
         style={{ borderColor: u.color, color: u.color }}
-      >{u.name.split(' ').map(n => n.charAt(0)).join('')}</div>)}
+      >{u.shortName}</div>)}
     </div>
   )
 }
