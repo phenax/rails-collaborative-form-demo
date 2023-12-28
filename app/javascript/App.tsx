@@ -25,12 +25,12 @@ export const App = () => {
 
   return (
     <formCtx.Provider value={yForm}>
-      {yForm.isReady && (
+      {yForm.isReady ? (
         <div className="max-w-4xl m-auto p-2">
           <FormHeader />
           <MyForm />
         </div>
-      )}
+      ) : (<div>Loading...</div>)}
     </formCtx.Provider>
   )
 }

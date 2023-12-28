@@ -4,29 +4,10 @@
   - (x) Deploy
   - (x) Clean up UI + tailwind
   - (x) Complex example with nested fields
+  - ( ) Cursor position issue
   - ( ) DB model
   - ( ) Docker
   - ( ) Text bug (some changes don't go through?)
-
-* DB
-** user
-   - id
-   - name
-   - age
-   - profession
-   - deeds
-** deed
-   - id
-   - description
-   - date
-** nice_list
-   - id
-   - user_id
-   - gift
-** naughty_list
-   - id
-   - user_id
-   - punishment
 
 * Ideas
   - (x) Granular updates in text fields with diffs

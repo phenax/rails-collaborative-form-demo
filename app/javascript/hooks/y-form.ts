@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useEffect, useMemo, useState } from 'react'
+import { ChangeEvent, InputHTMLAttributes, KeyboardEvent, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { WebsocketProvider } from '@y-rb/actioncable'
 import { createConsumer } from '@rails/actioncable'
 import * as Y from 'yjs'
@@ -7,6 +7,7 @@ import { FieldArray, FieldRecord, formCtx } from './useFormContext'
 import { useForceRender } from './useForceRender'
 import { useYObserver } from './useYObserver'
 import { useUserFocus } from './awareness'
+import { flushSync } from 'react-dom'
 
 (window as any).Y = Y; // For debugging
 
@@ -64,6 +65,7 @@ export const useYTextField = (root: FieldRecord, name: string) => {
   const fieldPath = `${root.fieldPath}/${name}`;
   const [inputValue, setInputValue] = useState<string>('');
   const { yDoc } = useContext(formCtx);
+  const $inputRef = useRef<HTMLInputElement | undefined>();
 
   const { onFocus, onBlur } = useUserFocus(fieldPath);
 
@@ -78,29 +80,31 @@ export const useYTextField = (root: FieldRecord, name: string) => {
     setInputValue(ev.target.toJSON().toString())
   })
 
+  const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    if (!value) return;
+
+    yDoc?.transact((_tr) => {
+      diffChars(value.toString(), e.target.value).reduce((index, part) => {
+        if (part.added) {
+          value.insert(index, part.value);
+        } else if (part.removed && part.count) {
+          value.delete(index, part.count);
+        }
+        return index + (part.count ?? 0)
+      }, 0)
+    }, 'local-update');
+  }, [value, yDoc]);
+
   return {
     fieldPath,
     props: {
+      ref: $inputRef,
       name,
       value: inputValue,
-      'data-field-id': fieldPath,
       onFocus,
       onBlur,
-      onChange: (e: ChangeEvent<HTMLInputElement>) => {
-        if (!value) return;
-
-        yDoc?.transact((_tr) => {
-          diffChars(value.toString(), e.target.value).reduce((index, part) => {
-            if (part.added) {
-              value.insert(index, part.value);
-            } else if (part.removed && part.count) {
-              value.delete(index, part.count);
-            }
-            return index + (part.count ?? 0)
-          }, 0)
-        })
-      }
-    },
+      onChange,
+    } satisfies InputHTMLAttributes<HTMLInputElement> & { ref: React.Ref<any> },
   };
 }
 
