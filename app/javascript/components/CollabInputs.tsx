@@ -46,9 +46,9 @@ export const SelectInput: React.FC<{
 } & InputHTMLAttributes<HTMLSelectElement>> = ({ options, ...props }) => {
   return (
     <select className="block w-full" {...props}>
-      {options.map(o => (
+      {options.map((o, i) => (
         <option
-          key={o.value}
+          key={i}
           value={o.value}
           className={!o.value ? 'text-slate-500' : ''}
         >{o.text}</option>

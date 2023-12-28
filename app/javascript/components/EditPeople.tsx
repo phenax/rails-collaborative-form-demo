@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useYArrayField } from '../hooks/y-form';
 import { FieldRecord, useFormContext, } from '../hooks/useFormContext';
 import * as Y from 'yjs'
 import { CollabNumberInput, CollabSelectInput, CollabTextInput } from './CollabInputs';
+import { useYObserverPath } from '../hooks/useYObserver';
 
 const verdictOptions = [
   { value: '', text: 'Select a verdict' },
@@ -33,6 +34,20 @@ export const DeedForm: React.FC<{ root: FieldRecord, deleteItem: () => void }> =
 
 export const EditPerson: React.FC<{ root: FieldRecord, deleteItem: () => void }> = ({ root, deleteItem }) => {
   const deedsArrayField = useYArrayField(root, 'deeds');
+  const { root: formRoot } = useFormContext();
+
+  const [presentOptions, setPresentOptions] = React.useState<{ value: string, text: string }[]>([]);
+
+  const updatePresents = useCallback(() => {
+    const values = formRoot.record?.get('presents')?.map?.((item: any) => {
+      const desc = item.get('description').toString()
+      return { value: desc, text: desc }
+    })
+    setPresentOptions([{ value: '', text: 'Select a present' }, ...values])
+  }, [formRoot.record])
+
+  useEffect(() => updatePresents(), [formRoot.record])
+  useYObserverPath(formRoot.record, ['presents', '*', 'description'], updatePresents)
 
   return (
     <div className="relative">
@@ -44,7 +59,7 @@ export const EditPerson: React.FC<{ root: FieldRecord, deleteItem: () => void }>
 
         <div className="flex justify-stretch gap-2">
           <CollabNumberInput root={root} name="age" placeholder="Age (Eg: 45)" />
-          <CollabSelectInput root={root} name="verdict" options={verdictOptions} />
+          <CollabSelectInput root={root} name="present" options={presentOptions} />
         </div>
 
         <div className="border border-gray-300 mt-4 py-2 px-4">

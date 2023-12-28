@@ -4,6 +4,7 @@ import { formCtx, useFormContext } from './hooks/useFormContext';
 import { EditPeopleForm } from './components/EditPeople';
 import { FormHeader } from './components/FormHeader';
 import { CollabTextInput } from './components/CollabInputs';
+import { PresentsForm } from './components/PresentsForm';
 
 export const MyForm: React.FC = () => {
   const { root } = useFormContext();
@@ -11,6 +12,8 @@ export const MyForm: React.FC = () => {
   return (
     <div className="py-1">
       <CollabTextInput root={root} name="description" placeholder="Description" />
+
+      <PresentsForm />
 
       <EditPeopleForm />
     </div>
