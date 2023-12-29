@@ -1,4 +1,4 @@
-import { ChangeEvent, InputHTMLAttributes, KeyboardEvent, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { ChangeEvent, InputHTMLAttributes, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { WebsocketProvider } from '@y-rb/actioncable'
 import { createConsumer } from '@rails/actioncable'
 import * as Y from 'yjs'
@@ -7,9 +7,6 @@ import { FieldArray, FieldRecord, formCtx } from './useFormContext'
 import { useForceRender } from './useForceRender'
 import { useYObserver } from './useYObserver'
 import { useUserFocus } from './awareness'
-import { flushSync } from 'react-dom'
-
-(window as any).Y = Y; // For debugging
 
 const actionCableConsumer = createConsumer();
 
@@ -32,7 +29,6 @@ export const useYForm = () => {
   const [yDoc, setYDoc] = useState<Y.Doc | undefined>(undefined);
   const [provider, setProvider] = useState<WebsocketProvider | undefined>(undefined);
   const isSynced = useIsSynced(provider);
-  const isReady = isSynced;
 
   useEffect(() => {
     const doc = new Y.Doc();
@@ -46,7 +42,12 @@ export const useYForm = () => {
 
   const root = yDoc?.getMap('form');
 
-  return { yDoc: yDoc, provider: provider, root: { record: root, id: 'root', fieldPath: '' }, isReady }
+  return {
+    yDoc: yDoc,
+    provider: provider,
+    root: { record: root, id: 'root', fieldPath: '' },
+    isReady: isSynced,
+  }
 }
 
 export const setupFieldValue = <T extends Y.AbstractType<any>>(
@@ -63,7 +64,6 @@ export const setupFieldValue = <T extends Y.AbstractType<any>>(
 
 export const useYTextField = (root: FieldRecord, name: string) => {
   const fieldPath = `${root.fieldPath}/${name}`;
-  const [inputValue, setInputValue] = useState<string>('');
   const { yDoc } = useContext(formCtx);
   const $inputRef = useRef<HTMLInputElement | undefined>();
 
@@ -71,20 +71,59 @@ export const useYTextField = (root: FieldRecord, name: string) => {
 
   const value = useMemo(() => setupFieldValue(root, name, new Y.Text()), [name, root.record]);
 
-  useEffect(() => {
-    if (!value) return;
-    setInputValue(value.toJSON().toString())
-  }, [value])
+  useYObserver(value, (_ev, tr) => {
+    if (!$inputRef.current || !value || tr.origin === 'local-update') return;
+    const isFocussed = document.activeElement === $inputRef.current;
 
-  useYObserver(value, (ev) => {
-    setInputValue(ev.target.toJSON().toString())
+    // Adjust selection/cursor position
+    const [_, start, end] = !isFocussed
+      ? [0, 0, 0]
+      : _ev.changes.delta.reduce(([idx, curS, curE], change) => {
+        if (change.retain) {
+          idx += change.retain;
+        } else if (change.insert) {
+          idx += change.insert.length;
+          if (idx < curS) {
+            curS += change.insert.length;
+            curE += change.insert.length;
+          } else if (idx >= curS && idx < curE) {
+            curE += change.insert.length;
+          }
+        } else if (change.delete) {
+          idx -= change.delete;
+          if (idx < curS) {
+            curS -= change.delete;
+            curE -= change.delete;
+          } else if (idx >= curS && idx < curE) {
+            curE -= change.delete;
+          }
+        }
+
+        return [idx, curS, curE]
+      }, [0, $inputRef.current.selectionStart ?? 0, $inputRef.current.selectionEnd ?? 0])
+
+    // Update value
+    $inputRef.current.value = value.toString();
+
+    // Set selection
+    if (isFocussed) {
+      $inputRef.current.setSelectionRange(start, end)
+    }
   })
 
-  const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    if (!value) return;
+  useEffect(() => {
+    if (!$inputRef.current || !value) return;
+    // Initial value
+    $inputRef.current.value = value.toString();
+  }, [value])
+
+  const onChange = useCallback((_) => {
+    if (!$inputRef.current || !value) return;
 
     yDoc?.transact((_tr) => {
-      diffChars(value.toString(), e.target.value).reduce((index, part) => {
+      // TODO: optimizaiton: Detect first index of change and diff from there?
+      // Or use fast-diff?
+      diffChars(value.toString(), $inputRef.current!.value).reduce((index, part) => {
         if (part.added) {
           value.insert(index, part.value);
         } else if (part.removed && part.count) {
@@ -98,13 +137,13 @@ export const useYTextField = (root: FieldRecord, name: string) => {
   return {
     fieldPath,
     props: {
-      ref: $inputRef,
+      ref: (el) => ($inputRef.current = el),
       name,
-      value: inputValue,
+      // value: inputValue,
       onFocus,
       onBlur,
       onChange,
-    } satisfies InputHTMLAttributes<HTMLInputElement> & { ref: React.Ref<any> },
+    } satisfies InputHTMLAttributes<HTMLInputElement> & { ref: (el: HTMLInputElement) => void },
   };
 }
 
