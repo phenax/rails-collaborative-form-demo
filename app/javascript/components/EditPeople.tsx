@@ -113,7 +113,7 @@ export const EditPeopleForm: React.FC = () => {
       <div className="text-right">
         <button
           className="px-2 py-1 bg-blue-600 text-white"
-          onClick={() => peopleArrayField.append({ name: new Y.Text(), profession: new Y.Text() })}
+          onClick={() => peopleArrayField.append({ name: new Y.Text(), profession: new Y.Text(), deeds: new Y.Array() })}
         >+ Add</button>
       </div>
     </div>

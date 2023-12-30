@@ -57,6 +57,11 @@ export const setupFieldValue = <T extends Y.AbstractType<any>>(
 ): T | undefined => {
   if (!root.record) return
   const value = root.record.get(name);
+  // TODO: Instead of setting Y.Text to document
+  // If no value/value not text, return default value
+  // If value and value !== doc.value, apply delta from value to doc.value and return doc.value
+  // If value and value === doc.value, return doc.value
+  // (Don't know how to maintain Y.Text local instead of getting it from doc)
   if (!value || !(value instanceof defaultValue.constructor))
     return root.record.set(name, defaultValue);
   return root.record.get(name);
@@ -150,7 +155,7 @@ export const useYTextField = (root: FieldRecord, name: string) => {
 export const useYArrayField = <T>(root: FieldRecord, name: string): FieldArray<T> => {
   const [updateCount, forceRender] = useForceRender()
 
-  const array = useMemo(() => setupFieldValue(root, name, new Y.Array<Y.Map<any>>()), [name, root.record]);
+  const array = useMemo(() => setupFieldValue(root, name, new Y.Array<Y.Map<any>>()), [name, root.record, updateCount]);
 
   useYObserver(array, (ev) => {
     console.log('>>> arr', ev)
