@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useFormContext } from './useFormContext';
 
 type DocUser = { name: string, shortName: string, id: string, focus?: string, color?: string }
 
 export const useSetupUser = (getUser: () => DocUser) => {
   const { provider } = useFormContext();
+  const getUserRef = useRef(getUser);
+  getUserRef.current = getUser;
 
   useEffect(() => {
     if (provider && !provider.awareness.getLocalState()?.user) {
-      provider.awareness.setLocalStateField('user', getUser())
+      provider.awareness.setLocalStateField('user', getUserRef.current())
     }
-  }, [provider, getUser]);
+  }, [provider]);
 }
 
 export const useActiveUsers = () => {
@@ -37,17 +39,17 @@ export const useUserFocus = (fieldPath: string) => {
   const { provider } = useFormContext();
 
   const onFocus = () => {
-    provider?.awareness.setLocalStateField('user', {
-      ...provider?.awareness.getLocalState()?.user,
+    const user = provider?.awareness.getLocalState()?.user;
+    provider?.awareness.setLocalStateField('user', Object.assign(user, {
       focus: fieldPath,
-    })
+    }))
   }
 
   const onBlur = () => {
-    provider?.awareness.setLocalStateField('user', {
-      ...provider?.awareness.getLocalState()?.user,
+    const user = provider?.awareness.getLocalState()?.user;
+    provider?.awareness.setLocalStateField('user', Object.assign(user, {
       focus: '',
-    })
+    }))
   }
 
   return { onFocus, onBlur }
@@ -62,11 +64,12 @@ export const useActiveUsersOnField = (fieldPath: string) => {
     const onUpdate = () => {
       const awStates = Array.from(provider.awareness.getStates().values())
       const self = provider.awareness.getLocalState()?.user
-      setUsers(
-        awStates
-          .filter(v => v.user.id !== self.id && v.user?.focus === fieldPath)
-          .map((v: any) => v.user)
-      )
+      const focusUsers = awStates
+        .filter(v => v.user.id !== self.id && v.user?.focus === fieldPath)
+        .map((v: any) => v.user);
+      if (focusUsers.length !== users.length || users.length === 0 || !focusUsers.every((v, i) => v.id === users[i].id)) {
+        setUsers(focusUsers)
+      }
     };
 
     provider.awareness.on('update', onUpdate)
