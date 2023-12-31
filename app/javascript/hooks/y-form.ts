@@ -3,8 +3,7 @@ import { WebsocketProvider } from '@y-rb/actioncable'
 import { createConsumer } from '@rails/actioncable'
 import * as Y from 'yjs'
 import { diffChars } from 'diff'
-import { FieldArray, FieldRecord, formCtx } from './useFormContext'
-import { useForceRender } from './useForceRender'
+import { FieldArray, FieldRecord, FormCtx, formCtx } from './useFormContext'
 import { useYObserver } from './useYObserver'
 import { useUserFocus } from './awareness'
 
@@ -25,7 +24,7 @@ export const useIsSynced = (provider?: WebsocketProvider) => {
   return isSynced;
 }
 
-export const useYForm = () => {
+export const useYForm = (channel: string, id: string, params: Record<string, any> = {}): FormCtx => {
   const [yDoc, setYDoc] = useState<Y.Doc | undefined>(undefined);
   const [provider, setProvider] = useState<WebsocketProvider | undefined>(undefined);
   const isSynced = useIsSynced(provider);
@@ -34,18 +33,18 @@ export const useYForm = () => {
     const doc = new Y.Doc();
     (window as any).yDoc = doc; // For debugging
 
-    const pro = new WebsocketProvider(doc, actionCableConsumer, 'FormChannel', { id: 'thisdocid' });
+    const pro = new WebsocketProvider(doc, actionCableConsumer, channel, { ...params, id });
 
     setYDoc(doc);
     setProvider(pro);
   }, [])
 
-  const root = yDoc?.getMap('form');
+  const root = useMemo(() => yDoc?.getMap('form'), [yDoc, isSynced]);
 
   return {
     yDoc: yDoc,
     provider: provider,
-    root: { record: root, id: 'root', fieldPath: '' },
+    root: useMemo(() => ({ record: root, id: 'root', fieldPath: '' }), [root]),
     isReady: isSynced,
   }
 }
@@ -153,18 +152,12 @@ export const useYTextField = (root: FieldRecord, name: string) => {
 }
 
 export const useYArrayField = <T>(root: FieldRecord, name: string): FieldArray<T> => {
-  const [updateCount, forceRender] = useForceRender()
+  const [arrayValues, setArrayValues] = useState<FieldRecord[]>([]);
 
-  const array = useMemo(() => setupFieldValue(root, name, new Y.Array<Y.Map<any>>()), [name, root.record, updateCount]);
+  const array = useMemo(() => setupFieldValue(root, name, new Y.Array<Y.Map<any>>()), [name, root.record]);
 
-  useYObserver(array, (ev) => {
-    console.log('>>> arr', ev)
-    forceRender();
-  })
-
-  return useMemo((): FieldArray<T> => ({
-    fieldPath: `${root.fieldPath}/${name}`,
-    array: array?.map(item => ({
+  const updateArrayValues = useCallback(() => {
+    const av = array?.map(item => ({
       record: item,
       get fieldPath() {
         return `${root.fieldPath}/${name}/${item.get('_id').toString()}`;
@@ -172,8 +165,20 @@ export const useYArrayField = <T>(root: FieldRecord, name: string): FieldArray<T
       get id() {
         return item.get('_id').toString()
       },
-    })) ?? [],
-    updateCount,
+    })) ?? []
+
+    setArrayValues(av);
+  }, [array])
+
+  useEffect(() => updateArrayValues(), [updateArrayValues])
+  useYObserver(array, (ev) => {
+    console.log('>>> arr', ev)
+    updateArrayValues();
+  })
+
+  return useMemo((): FieldArray<T> => ({
+    fieldPath: `${root.fieldPath}/${name}`,
+    array: arrayValues,
     append(item) {
       const randomId = `${Math.random()}`
       array?.insert(array.length, [new Y.Map(Object.entries({ _id: randomId, ...item }))]);
@@ -184,7 +189,7 @@ export const useYArrayField = <T>(root: FieldRecord, name: string): FieldArray<T
     get length() {
       return array?.length ?? 0;
     },
-  }), [array, updateCount]);
+  }), [array, arrayValues, name, root.fieldPath]);
 };
 
 export const useYValueField = <T = string>(root: FieldRecord, name: string, defaultValue?: T) => {

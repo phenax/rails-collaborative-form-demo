@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useFormContext } from './useFormContext';
 
-type DocUser = { name: string, shortName: string, id: string, focus?: string, color?: string }
+type DocUser = { name: string, shortName: string, id: string, color?: string }
 
 export const useSetupUser = (getUser: () => DocUser) => {
   const { provider } = useFormContext();
@@ -38,19 +38,11 @@ export const useActiveUsers = () => {
 export const useUserFocus = (fieldPath: string) => {
   const { provider } = useFormContext();
 
-  const onFocus = () => {
-    const user = provider?.awareness.getLocalState()?.user;
-    provider?.awareness.setLocalStateField('user', Object.assign(user, {
-      focus: fieldPath,
-    }))
-  }
+  const onFocus = () =>
+    provider?.awareness.setLocalStateField('focus', fieldPath)
 
-  const onBlur = () => {
-    const user = provider?.awareness.getLocalState()?.user;
-    provider?.awareness.setLocalStateField('user', Object.assign(user, {
-      focus: '',
-    }))
-  }
+  const onBlur = () =>
+    provider?.awareness.setLocalStateField('focus', '')
 
   return { onFocus, onBlur }
 }
@@ -61,11 +53,13 @@ export const useActiveUsersOnField = (fieldPath: string) => {
 
   useEffect(() => {
     if (!provider) return;
-    const onUpdate = () => {
+    const onUpdate = (_e: any, origin = 'local') => {
+      if (origin === 'local') return;
+
       const awStates = Array.from(provider.awareness.getStates().values())
       const self = provider.awareness.getLocalState()?.user
       const focusUsers = awStates
-        .filter(v => v.user.id !== self.id && v.user?.focus === fieldPath)
+        .filter(v => v.user.id !== self.id && v.focus === fieldPath)
         .map((v: any) => v.user);
       if (focusUsers.length !== users.length || users.length === 0 || !focusUsers.every((v, i) => v.id === users[i].id)) {
         setUsers(focusUsers)

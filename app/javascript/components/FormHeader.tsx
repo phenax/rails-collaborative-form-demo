@@ -110,6 +110,5 @@ export const getRandomUser = () => {
     name: `${fn} ${ln}`,
     shortName: `${fn} ${ln.charAt(0)}.`,
     color: c,
-    focus: '',
   }
 }

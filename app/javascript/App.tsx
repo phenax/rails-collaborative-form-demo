@@ -21,7 +21,7 @@ export const MyForm: React.FC = () => {
 }
 
 export const App = () => {
-  const yForm = useYForm();
+  const yForm = useYForm('FormChannel', 'thisdocid');
 
   return (
     <formCtx.Provider value={yForm}>

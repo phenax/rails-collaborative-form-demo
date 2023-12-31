@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import * as Y from 'yjs'
-import { FieldRecord, useFormContext } from "./useFormContext";
 
 export const useYObserver = <T extends Y.AbstractType<any>>(
   value: T | undefined,

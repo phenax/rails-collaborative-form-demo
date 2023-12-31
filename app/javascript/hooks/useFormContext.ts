@@ -11,7 +11,6 @@ export type FieldRecord = Readonly<{
 export type FieldArray<T = any> = Readonly<{
   fieldPath: string;
   array: FieldRecord[];
-  updateCount: number;
   append: (item: T) => void;
   delete: (index: number) => void;
   length: number;
@@ -21,6 +20,7 @@ export type FormCtx = {
   yDoc?: Y.Doc,
   root: FieldRecord,
   provider?: WebsocketProvider,
+  isReady?: boolean,
 }
 
 export const formCtx = createContext<FormCtx>(undefined!);
