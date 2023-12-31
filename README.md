@@ -1,24 +1,24 @@
-# README
+# Stuff
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Demo](https://rt-form-demo.onrender.com/)
 
-Things you may want to cover:
+## Instructions
 
-* Ruby version
+### Start a redis server (default port: 6379)
+```sh
+redis-server;
+```
 
-* System dependencies
+### Build and start server
+```sh
+yarn start;
+```
 
-* Configuration
+Or
 
-* Database creation
+```sh
+./bin/rails tailwindcss:build;
+./bin/rails javascript:build;
+./bin/rails server;
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

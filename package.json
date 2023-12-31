@@ -3,10 +3,11 @@
   "private": "true",
   "scripts": {
     "dev": "concurrently 'yarn build:dev --watch' './bin/rails server' 'yarn watch:css'",
+    "start": "yarn build:css && yarn build && ./bin/rails server",
     "build": "esbuild app/javascript/*.* --bundle --outdir=app/assets/builds --public-path=/assets --minify",
     "build:dev": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets",
-    "build:css": "./bin/rake tailwindcss:build",
-    "watch:css": "./bin/rake tailwindcss:watch"
+    "build:css": "./bin/rails tailwindcss:build",
+    "watch:css": "./bin/rails tailwindcss:watch"
   },
   "dependencies": {
     "@rails/actioncable": "^7.1.2",
